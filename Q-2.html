@@ -1,0 +1,62 @@
+<table border="2">
+    <tr>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Phone</td>
+    </tr>
+    <tbody id="record"></tbody>
+</table>
+
+<script type="text/javascript">
+    let data = [
+        {
+            name: "jay",
+            email: "jay@gmail.com",
+            phone: "12345",
+        },
+        {
+            name: "ajay",
+            email: "ajay@gmail.com",
+            phone: "12345",
+        },
+        {
+            name: "vijay",
+            email: "vijay@gmail.com",
+            phone: "12345",
+        },
+        {
+            name: "ashish",
+            email: "ashish@gmail.com",
+            phone: "12345",
+        },
+    ];
+
+    let tbl = "";
+    class customer {
+        constructor(name, email, phone) {
+            this.name = name;
+            this.email = email;
+            this.phone = phone;
+        }
+        details = () => {
+            tbl += `
+                      <tr>
+                        <td>${this.name}</td>
+                        <td>${this.email}</td>
+                        <td>${this.phone}</td>
+                      </tr>
+                   `
+            document.getElementById('record').innerHTML = tbl;
+        }
+    }
+    let obj1 = new customer("jay","vijay@gmail.com","12345");
+    let obj2 = new customer("ajay","ajay@gmail.com","12345");
+    let obj3 = new customer("vijay","vijay@gmail.com","12345");
+    let obj4 = new customer("ashish","ashish@gmail.com","12345");
+    obj1.details();
+    obj2.details();
+    obj3.details();
+    obj4.details();
+
+
+</script>

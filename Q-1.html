@@ -1,0 +1,99 @@
+<table border="2">
+    <tr>
+        <td>Student name</td>
+        <td>Physics</td>
+        <td>Chemistry</td>
+        <td>Biology</td>
+        <td>Mathematics</td>
+        <td>Computer</td>
+        <td>Total Marks</td>
+        <td>Percentage</td>
+        <td>Grade</td>
+    </tr>
+    <tbody id="datarecord">
+
+    </tbody>
+
+</table>
+
+<style>
+    table tr td {
+        padding: 5px 5px;
+    }
+</style>
+
+<script type="text/javascript">
+    let studentrecord = [];
+    class Data {
+        Studentmarks() {
+            let name = prompt("Studentname");
+            let a = parseInt(prompt("Physics"));
+            let b = parseInt(prompt("Chemistry"));
+            let c = parseInt(prompt("Biology"));
+            let d = parseInt(prompt("Mathematics"));
+            let e = parseInt(prompt("Computer"));
+            let sum = a + b + c + d + e;
+            let percentage = (sum / 500) * 100;
+            let grade;
+
+            if (percentage >= 90) {
+                grade = "A";
+            }
+            else if (percentage >= 80) {
+                grade = "B";
+            }
+            else if (percentage >= 70) {
+                grade = "C";
+            }
+            else if (percentage >= 60) {
+                grade = "D";
+            }
+            else if (percentage >= 50) {
+                grade = "E";
+            }
+            else if (percentage >= 40) {
+                grade = "F";
+            }
+            else {
+                grade = "student fail....";
+            }
+
+            let student = {
+                studentname: name,
+                physics: a,
+                chemistry: b,
+                biology: c,
+                mathematics: d,
+                computer: e,
+                total: sum,
+                percentage: percentage + "%",
+                grade: grade
+            };
+            studentrecord.push(student);
+        }
+    }
+    function file() {
+        let tbl = "";
+        studentrecord.map((val) => {
+            tbl +=
+                `
+                <tr>
+                    <td>${val.studentname}</td>
+                    <td>${val.physics}</td>
+                    <td>${val.chemistry}</td>
+                    <td>${val.biology}</td>
+                    <td>${val.mathematics}</td>
+                    <td>${val.computer}</td>
+                    <td>${val.total}</td>
+                    <td>${val.percentage}</td>
+                    <td>${val.grade}</td>
+                </tr>
+            `;
+        });
+        document.getElementById('datarecord').innerHTML = tbl;
+    }
+    let obj = new Data();
+    obj.Studentmarks();
+    file();
+
+</script>

@@ -1,0 +1,27 @@
+<label>
+    <h1 style="display: inline;">Enter the any Multiplication table </h1>
+</label>
+<input type="text" id="number">
+<input type="button" onclick="table()" value="Enter" style="padding: 5px 5px;"/>
+<h1 id="dataenter"></h1>
+
+<script type="text/javascript">
+    function table() {
+        class table {
+            multitable() {
+                let number = document.getElementById('number').value;
+                let i = 1;
+                let table = "";
+                do {
+                    table += number + " * " + i + " =" + number * i + "<br>";
+                    document.getElementById('dataenter').innerHTML = table;
+                    i++;
+                }  
+                while (i <= 10)
+                document.getElementById('num').innerHTML = "";
+            }
+        }
+        let obj = new table;
+        obj.multitable();
+    }
+</script>
